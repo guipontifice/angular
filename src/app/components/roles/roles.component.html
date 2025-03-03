@@ -1,1 +1,37 @@
-<p>roles works!</p>
+<div class="linha">
+  <div class="coluna">
+    <p>{{ firstName }}</p>
+  </div>
+  <div class="coluna">
+    <p>{{ angularVersion }}</p>
+  </div>
+  <div class="coluna">
+    <p>{{ currentDate }}</p>
+  </div>
+  <div class="coluna">
+    <p>{{ selectedState }}</p>
+  </div>
+</div>
+<div class="linha">
+    <div class="coluna">
+        <input type="text" [value]="firstName" class="form-control" />
+    </div>
+    <div class="coluna">
+        <input type="text" [(ngModel)]="firstName" />
+    </div>
+    <div class="coluna">
+        <input [type]="inputType" />
+    </div>
+    <div class="coluna">
+        <select [(ngModel)]="selectedState">
+            <option value="MH">MH</option>
+            <option value="MP">MP</option>
+            <option value="GRU">GRU</option>
+        </select>
+    </div>
+</div>
+<div class="linha">
+    <div class="coluna">
+        <button class="sucesso" (click)="showWelcomeAlert()">Mostrar Alert</button>
+    </div>
+</div>

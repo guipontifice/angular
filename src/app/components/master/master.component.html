@@ -1,0 +1,17 @@
+<div class="linha">
+  <div class="coluna">
+    <div class="botoes">
+      <button class="botao" (click)="changeTab('Roles')">Roles</button>
+      <button class="botao" (click)="changeTab('Designation' )">Designation</button>
+    </div>
+  </div>
+</div>
+<div class="linha">
+    <div class="coluna" *ngIf="currentComponent == 'Roles'">
+        <app-roles></app-roles>
+    </div>
+    <div class="coluna" ngIf="currentComponent == 'Designation'">
+ 
+        <app-designation></app-designation>
+    </div>
+</div>

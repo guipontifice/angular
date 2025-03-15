@@ -1,1 +1,18 @@
-<p>designation works!</p>
+<div class="linha">
+  @for (item of designationList; track $index) {
+
+  <div class="coluna">
+    <div class="card">
+      <div class="card-body">
+        <h2>{{ item.designation }}</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis,
+          at.
+        </p>
+        <a href="#">Editar</a>
+        <a href="#">Deletar</a>
+      </div>
+    </div>
+  </div>
+  }
+</div>

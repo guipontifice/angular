@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Client } from '../../model/class/Client'
 @Component({
   selector: 'app-client',
   imports: [],
@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './client.component.scss'
 })
 export class ClientComponent {
+
+  clientObj: Client = new Client();
+
 
 }

@@ -11,7 +11,7 @@ import { APIResponseModel } from '../model/interface/role';
 export class ClientService {
 
   constructor(private http: HttpClient) { }
-// /api/ClientStrive/GetAllClients
+  // /api/ClientStrive/GetAllClients
   getAllClients(): Observable<APIResponseModel> {
     return this.http.get<APIResponseModel>(environment.API_URL + "GetAllClients");
   }
@@ -22,6 +22,10 @@ export class ClientService {
   deleteClientById(id: number): Observable<APIResponseModel> {
     return this.http.delete<APIResponseModel>(environment.API_URL + "DeleteClientByClientId?clientId=" + id);
 
-  } 
+  }
 
+  getAllEmployee(): Observable<APIResponseModel> {
+    return this.http.get<APIResponseModel>(environment.API_URL + "GetAllClients");
+
+  }
 }

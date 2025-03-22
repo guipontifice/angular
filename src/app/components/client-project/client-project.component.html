@@ -1,0 +1,128 @@
+<div class="linha">
+  <div class="coluna">
+    <div class="cards">
+      <div class="card-header">
+        <span>Lista de Clientes</span>
+      </div>
+      <div class="card-body">
+        <table>
+          <thead>
+            <tr>
+              <th>Sr No</th>
+              <th>Company Name</th>
+              <th>Person Name</th>
+              <th>Contact No</th>
+              <th>City</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- @for (item of clientList; track $index) {
+            <tr>
+              <td>{{ $index + 1 }}</td>
+              <td>{{ item.companyName }}</td>
+              <td>{{ item.contactPersonName }}</td>
+              <td>{{ item.contactNo }}</td>
+              <td>{{ item.city }}</td>
+              <td>
+                <button (click)="onEdit(item)">Editar</button>
+                <button (click)="onDelete(item.clientId)">Deletar</button>
+              </td>
+            </tr>
+            } -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="linha">
+  <div class="coluna">
+    <div class="cards">
+      <div class="card-header">
+        <span>Novo Clientes</span>
+      </div>
+      <div class="card-body">
+        <form formGroup="projectForm">
+          <div class="linha">
+            <div class="coluna">
+              <label for="">Nome do Projeto</label>
+              <input type="text" formControlName="projectName" class="form-control" />
+            </div>
+            <div class="coluna">
+              <label for="">Start Date</label>
+              <input
+                type="text"
+                class="form-control" formControlName="startDate"
+              />
+            </div>
+            <div class="coluna">
+              <label for="">Expected End Date</label>
+              <input
+                type="text"
+                class="form-control" formControlName="expectedEndDate"
+              />
+            </div>
+            <div class="coluna">
+              <label for="">Contact Name</label>
+              <input
+                type="text"
+                class="form-control" formControlName="contactPerson"
+              />
+            </div>
+            <div class="coluna">
+              <label for="">Contact Mobile</label>
+              <input
+                type="text"
+                class="form-control" formControlName="contactPersonContactNo"
+              />
+            </div>
+            <div class="coluna">
+              <label for="">Total Employee Count</label>
+              <input
+                type="text"
+                class="form-control" formControlName="totalEmpWorking"
+              />
+            </div>
+            <div class="coluna">
+              <label for="">Project Costing</label>
+              <input
+                type="text"
+                class="form-control" formControlName="projectCost"
+              />
+            </div>
+            <div class="coluna">
+              <label for="">Select Client</label>
+              <input
+                type="text"
+                class="form-control" formControlName="clientId"
+              />
+            </div>
+            <div class="coluna">
+              <label for="">Lead By</label>
+              <input
+                type="text"
+                class="form-control" formControlName="leadByEmpId"
+              />
+            </div>
+            <div class="coluna">
+              <label for="">contactNo</label>
+              <input
+                type="text"
+                class="form-control" formControlName=""
+              />
+            </div>
+          </div>
+          <div class="linha linha-2">
+            <div class="coluna">
+              <button>Resetar</button>
+              <button>
+                Salvar Cliente
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

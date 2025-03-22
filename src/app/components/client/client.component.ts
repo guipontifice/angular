@@ -21,7 +21,6 @@ export class ClientComponent implements OnInit {
   }
 
   loadClient() {
-    console.log(Client)
     this.clientService.getAllClients().subscribe((res: APIResponseModel) => {
       this.clientList = res.data;
     });
@@ -32,9 +31,29 @@ export class ClientComponent implements OnInit {
       if (res.result) {
         alert("Cliente criado com sucesso");
         this.loadClient();
+        this.clientObj = new Client();
       } else {
         alert(res.message);
       }
     })
+  }
+  onEdit(data: Client) {
+    this.clientObj = data;
+  }
+
+  onDelete(id: number) {
+    const deleting = confirm("Você quer deletar?");
+    if (deleting) {
+      this.clientService.deleteClientById(id).subscribe((res: APIResponseModel) => {
+        if (res.result) {
+          alert("Cliente deletado com sucesso");
+          this.loadClient();
+          this.clientObj = new Client();
+        } else {
+          alert(res.message);
+        }
+      })
+    }
+
   }
 }

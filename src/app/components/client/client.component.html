@@ -16,13 +16,15 @@
             </tr>
           </thead>
           <tbody>
+            @for (item of clientList; track $index) {
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{{ $index + 1 }}</td>
+              <td>{{ item.companyName }}</td>
+              <td>{{ item.contactPersonName }}</td>
+              <td>{{ item.contactNo }}</td>
+              <td>{{ item.city }}</td>
             </tr>
+            }
           </tbody>
         </table>
       </div>
@@ -39,39 +41,83 @@
         <div class="linha">
           <div class="coluna">
             <label for="">Nome</label>
-            <input type="text" [(ngModel)]="clientObj.contactPersonName" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="clientObj.contactPersonName"
+              class="form-control"
+            />
           </div>
           <div class="coluna">
             <label for="">Empresa</label>
-            <input type="text" [(ngModel)]="clientObj.companyName" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="clientObj.companyName"
+              class="form-control"
+            />
           </div>
           <div class="coluna">
             <label for="">Cidade</label>
-            <input type="text" [(ngModel)]="clientObj.city" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="clientObj.city"
+              class="form-control"
+            />
           </div>
           <div class="coluna">
             <label for="">Estado</label>
-            <input type="text" [(ngModel)]="clientObj.state" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="clientObj.state"
+              class="form-control"
+            />
           </div>
           <div class="coluna">
             <label for="">Pincode</label>
-            <input type="text" [(ngModel)]="clientObj.pincode" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="clientObj.pincode"
+              class="form-control"
+            />
           </div>
           <div class="coluna">
             <label for="">Adress</label>
-            <input type="text" [(ngModel)]="clientObj.address" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="clientObj.address"
+              class="form-control"
+            />
           </div>
           <div class="coluna">
             <label for="">Employee Strength</label>
-            <input type="text" [(ngModel)]="clientObj.employeeStrength" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="clientObj.employeeStrength"
+              class="form-control"
+            />
           </div>
           <div class="coluna">
             <label for="">gstNo</label>
-            <input type="text" [(ngModel)]="clientObj.gstNo" class="form-control" />
+            <input
+              type="text"
+              [(ngModel)]="clientObj.gstNo"
+              class="form-control"
+            />
           </div>
           <div class="coluna">
             <label for="">regNo</label>
-            <input type="text" [(ngModel)]="clientObj.regNo" class="form -control" />
+            <input
+              type="text"
+              [(ngModel)]="clientObj.regNo"
+              class="form -control"
+            />
+          </div>
+          <div class="coluna">
+            <label for="">contactNo</label>
+            <input
+              type="text"
+              [(ngModel)]="clientObj.contactNo"
+              class="form-control"
+            />
           </div>
         </div>
         <div class="linha linha-2">

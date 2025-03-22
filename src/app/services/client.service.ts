@@ -2,17 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Client } from "../model/class/Client";
-import { environment } from "../../environments/environment.development";
+import { environment } from '../../environments/environment';
+import { APIResponseModel } from '../model/interface/role';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
+// /api/ClientStrive/GetAllClients
+  getAllClients(): Observable<APIResponseModel> {
+    return this.http.get<APIResponseModel>(environment.API_URL + "GetAllClients");
+  }
+
+  addUpdate(obj: Client): Observable<APIResponseModel> {
+    return this.http.post<APIResponseModel>(environment.API_URL + "AddUpdateClient", obj);
+  }
+  deleteClientById(id: number): Observable<APIResponseModel> {
+    return this.http.get<APIResponseModel>(environment.API_URL + "DeleteClientById?clientId=" + id);
 
   }
 
-  getAllClients(): Observable<Client> {
-    return this.http.get<Client>(environment.API_URL + "GetAllDesignation");
-  }
 }

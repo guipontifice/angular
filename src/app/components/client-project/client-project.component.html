@@ -47,77 +47,122 @@
           <div class="linha">
             <div class="coluna">
               <label for="">Nome do Projeto</label>
-              <input type="text" formControlName="projectName" class="form-control" />
+              <input
+                type="text"
+                formControlName="projectName"
+                class="form-control"
+              />
+              @if(projectForm.controls['projectName'].touched) {
+
+              <div class="texto-required">
+                @if (projectForm.controls['projectName'].errors?.['minlength'])
+                {
+                <span>Campo Necessário</span>
+                } @if
+                (projectForm.controls['projectName'].errors?.['minlength']) {
+                <span>Mínimo de 4 Caracteres</span>
+                }
+              </div>
+              }
             </div>
             <div class="coluna">
               <label for="">Start Date</label>
               <input
                 type="text"
-                class="form-control" formControlName="startDate"
+                class="form-control"
+                formControlName="startDate"
               />
             </div>
             <div class="coluna">
               <label for="">Expected End Date</label>
               <input
                 type="text"
-                class="form-control" formControlName="expectedEndDate"
+                class="form-control"
+                formControlName="expectedEndDate"
               />
             </div>
             <div class="coluna">
               <label for="">Contact Name</label>
               <input
                 type="text"
-                class="form-control" formControlName="contactPerson"
+                class="form-control"
+                formControlName="contactPerson"
               />
             </div>
             <div class="coluna">
               <label for="">Contact Mobile</label>
               <input
                 type="text"
-                class="form-control" formControlName="contactPersonContactNo"
+                class="form-control"
+                formControlName="contactPersonContactNo"
               />
             </div>
             <div class="coluna">
               <label for="">Total Employee Count</label>
               <input
                 type="text"
-                class="form-control" formControlName="totalEmpWorking"
+                class="form-control"
+                formControlName="totalEmpWorking"
               />
             </div>
             <div class="coluna">
               <label for="">Project Costing</label>
               <input
                 type="text"
-                class="form-control" formControlName="projectCost"
+                class="form-control"
+                formControlName="projectCost"
               />
+            </div>
+            <div class="coluna">
+              <label for="">Project Description</label>
+              <textarea
+                class="form-control"
+                formControlName="projectDetails"
+              ></textarea>
             </div>
             <div class="coluna">
               <label for="">Select Client</label>
-              <input
+              <select
                 type="text"
-                class="form-control" formControlName="clientId"
-              />
+                class="form-control"
+                formControlName="clientId"
+              >
+                <option value="">Select Client</option>
+                @for (item of clientList; track $index) {
+                <option [value]="item.clientId">{{ item?.companyName }}</option>
+                }
+              </select>
             </div>
             <div class="coluna">
               <label for="">Lead By</label>
-              <input
+              <select
                 type="text"
-                class="form-control" formControlName="leadByEmpId"
-              />
+                class="form-control"
+                formControlName="leadByEmpId"
+              >
+                <option value="">Select Employee</option>
+
+                @for (item of employeeList; track $index) {
+                <option [value]="item.empId">
+                  {{ item.empName }} - {{ item.empCode }}
+                </option>
+                }
+              </select>
             </div>
+
             <div class="coluna">
               <label for="">contactNo</label>
-              <input
-                type="text"
-                class="form-control" formControlName=""
-              />
+              <input type="text" class="form-control" formControlName="" />
             </div>
           </div>
           <div class="linha linha-2">
             <div class="coluna">
               <button>Resetar</button>
-              <button>
-                Salvar Cliente
+              <button
+                [disabled]="projectForm.invalid"
+                (click)="onSaveProject()"
+              >
+                Salvar Projeto
               </button>
             </div>
           </div>

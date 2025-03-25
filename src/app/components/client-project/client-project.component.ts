@@ -1,12 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
 import { APIResponseModel, Employee } from '../../model/interface/role';
 import { Client } from '../../model/class/Client';
 
 @Component({
   selector: 'app-client-project',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './client-project.component.html',
   styleUrl: './client-project.component.scss'
 })
@@ -47,6 +47,7 @@ export class ClientProjectComponent implements OnInit {
     })
   }
   onSaveProject () {
+    console.log('Deu certo?')
     const formValue = this.projectForm.value;
     this.clientSrv.addClientProjectUpdate(formValue).subscribe((res: APIResponseModel) => {
       if (res.result) {

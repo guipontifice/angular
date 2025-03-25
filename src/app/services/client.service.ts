@@ -29,6 +29,6 @@ export class ClientService {
   }
 
   addClientProjectUpdate(obj: Client): Observable<APIResponseModel> {
-    return this.http.post<APIResponseModel>(environment.API_URL + "AddUpdateClient", obj)
+    return this.http.post<APIResponseModel>(environment.API_URL + "AddUpdateClientProject", obj)
   }
 }

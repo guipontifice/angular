@@ -1,8 +1,9 @@
+<p>{{clientObj | json}}</p>
 <div class="linha">
   <div class="coluna">
     <div class="cards">
       <div class="card-header">
-        <span>Lista de Clientes</span>
+        <span>Lista de Clientes - {{ currentDate | date: 'dd-MMM-yyyy'}}</span>
       </div>
       <div class="card-body">
         <table>
@@ -20,7 +21,7 @@
             @for (item of clientList; track $index) {
             <tr>
               <td>{{ $index + 1 }}</td>
-              <td>{{ item.companyName }}</td>
+              <td>{{ item.companyName | uppercase }}</td>
               <td>{{ item.contactPersonName }}</td>
               <td>{{ item.contactNo }}</td>
               <td>{{ item.city }}</td>

@@ -4,6 +4,8 @@ import { FormsModule } from "@angular/forms";
 import { ClientService } from '../../services/client.service';
 import { APIResponseModel } from '../../model/interface/role';
 import { DatePipe, JsonPipe, UpperCasePipe } from '@angular/common';
+import { Observable } from 'rxjs';
+import { getAllUser} from ""
 @Component({
   selector: 'app-client',
   standalone: true,
@@ -16,10 +18,12 @@ export class ClientComponent implements OnInit {
   clientObj: Client = new Client();
   clientList: Client[] = [];
   currentDate: Date = new Date();
-  clientService = inject(ClientService);
 
+  clientService = inject(ClientService);
+  userList$: Observable<any> = new Observable<any>;
   ngOnInit(): void {
     this.loadClient();
+    this.userList$ = this.clientService.getAllUser();
   }
 
   loadClient() {

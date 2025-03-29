@@ -1,3 +1,10 @@
-<div class="mensagem-alerta alerta-sucesso">
-    <span>Sucesso!</span>
+<div
+  [className]="
+    alertType == 'Success'
+      ? 'mensagem-alerta alerta-sucesso'
+      : 'mensagem-alerta alerta-erro'
+  "
+>
+  <span>{{ alertType }}</span>
+  <span>{{ message }}</span>
 </div>

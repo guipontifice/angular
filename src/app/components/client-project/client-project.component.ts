@@ -1,7 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
-import { APIResponseModel, Employee } from '../../model/interface/role';
+import { APIResponseModel, ClientProject, Employee } from '../../model/interface/role';
 import { Client } from '../../model/class/Client';
 
 @Component({
@@ -10,6 +10,7 @@ import { Client } from '../../model/class/Client';
   templateUrl: './client-project.component.html',
   styleUrl: './client-project.component.scss'
 })
+
 export class ClientProjectComponent implements OnInit {
 
   projectForm: FormGroup = new FormGroup({
@@ -31,10 +32,20 @@ export class ClientProjectComponent implements OnInit {
   clientSrv = inject(ClientService);
   employeeList: Employee[] = [];
   clientList: Client[] = [];
+
+
+  firstName = signal("Angular");
+  projectList = signal<ClientProject[]>([])
+
   ngOnInit(): void {
+    const name = this.firstName();
     this.getAllClient();
     this.getAllEmployee();
   }
+  changeName() {
+    this.firstName.set("TesteJs")
+  }
+
   getAllEmployee() {
     this.clientSrv.getAllEmployee().subscribe((res: APIResponseModel) => {
       this.employeeList = res.data;
@@ -46,7 +57,7 @@ export class ClientProjectComponent implements OnInit {
       this.employeeList = res.data;
     })
   }
-  onSaveProject () {
+  onSaveProject() {
     console.log('Deu certo?')
     const formValue = this.projectForm.value;
     this.clientSrv.addClientProjectUpdate(formValue).subscribe((res: APIResponseModel) => {
@@ -57,5 +68,5 @@ export class ClientProjectComponent implements OnInit {
       }
     });
   }
-  
+
 }

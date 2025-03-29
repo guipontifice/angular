@@ -2,7 +2,8 @@
   <div class="coluna">
     <div class="cards">
       <div class="card-header">
-        <span>Lista de Clientes</span>
+        <span>Lista de Clientes - {{(firstName())}}</span>
+        <button (click)="changeName()">Mudar Primeiro Nome</button>
       </div>
       <div class="card-body">
         <table>

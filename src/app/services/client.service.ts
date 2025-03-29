@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 import { Client } from "../model/class/Client";
 import { environment } from '../../environments/environment';
 import { APIResponseModel } from '../model/interface/role';
-import { Constant } from '../constant/constant';
+import { Constant } from '../constant/Constant';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class ClientService {
     return this.http.get<APIResponseModel>(environment.API_URL + Constant.API_METHOD.GET_ALL_CLIENT);
   }
 
-  getAllUser(){ 
+  getAllUser() {
     return this.http.get("https://jsonplaceholder.typicode.com/users");
   }
   addUpdate(obj: Client): Observable<APIResponseModel> {
@@ -32,6 +32,10 @@ export class ClientService {
     return this.http.get<APIResponseModel>(environment.API_URL + Constant.API_METHOD.GET_ALL_EMP);
   }
 
+  getAllClientProject() {
+    return this.http.get<APIResponseModel>(environment.API_URL + Constant.API_METHOD.GET_ALL_PROJECT);
+  }
+  
   addClientProjectUpdate(obj: Client): Observable<APIResponseModel> {
     return this.http.post<APIResponseModel>(environment.API_URL + "AddUpdateClientProject", obj)
   }

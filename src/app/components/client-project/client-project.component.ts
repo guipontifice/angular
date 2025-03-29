@@ -3,10 +3,11 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import { ClientService } from '../../services/client.service';
 import { APIResponseModel, ClientProject, Employee } from '../../model/interface/role';
 import { Client } from '../../model/class/Client';
-
+import { DatePipe } from "@angular/common";
+import { AlertComponent } from "../reusable/alert/alert.component";
 @Component({
   selector: 'app-client-project',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, DatePipe, AlertComponent],
   templateUrl: './client-project.component.html',
   styleUrl: './client-project.component.scss'
 })
@@ -49,6 +50,12 @@ export class ClientProjectComponent implements OnInit {
   getAllEmployee() {
     this.clientSrv.getAllEmployee().subscribe((res: APIResponseModel) => {
       this.employeeList = res.data;
+    })
+  }
+
+  getAllClientProject() {
+    this.clientSrv.getAllClientProject().subscribe((res: APIResponseModel) => {
+      this.projectList.set(res.data);
     })
   }
 

@@ -1,15 +1,20 @@
-<p>{{clientObj | json}}</p>
+<p>{{ clientObj | json }}</p>
 <ul>
   @for (item of userList$ | async; track $index) {
-    <li>{{item.userName}}</li>
+  <li>{{ item.userName }}</li>
   }
 </ul>
-<app-alert [alertType]="'Deu certo'" [message]="'Hi from Client Page'"></app-alert>
+<app-alert
+  [alertType]="'Deu certo'"
+  [message]="'Hi from Client Page'"
+></app-alert>
 <div class="linha">
   <div class="coluna">
     <div class="cards">
       <div class="card-header">
-        <span>Lista de Clientes - {{ currentDate | date: 'dd-MMM-yyyy'}}</span>
+        <span
+          >Lista de Clientes - {{ currentDate | date : "dd-MMM-yyyy" }}</span
+        >
       </div>
       <div class="card-body">
         <table>
@@ -158,11 +163,14 @@
           <div class="linha linha-2">
             <div class="coluna">
               <button>Resetar</button>
-              <button [disabled]="form.valid" (click)="onSaveClient()">
-                {{
-                  clientObj.clientId !== 0 ? "Salvar Cliente" : "Salvar Cliente"
-                }}
-              </button>
+              <app-button
+                (onBtnClicked)="onSaveClient()"
+                [btnClass]="'botao botao-sucesso'"
+                [btnText]="
+                   clientObj.clientId !== 0 ? 'Salvar Cliente' : 'Salvar Cliente'
+                "
+              ></app-button>
+              <button [disabled]="form.valid" (click)="onSaveClient()"></button>
             </div>
           </div>
         </form>

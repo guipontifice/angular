@@ -164,13 +164,13 @@
             <div class="coluna">
               <button>Resetar</button>
               <app-button
-                (onBtnClicked)="onSaveClient()"
+                (onBtnClicked)="onSaveClient($event)"
                 [btnClass]="'botao botao-sucesso'"
                 [btnText]="
                    clientObj.clientId !== 0 ? 'Salvar Cliente' : 'Salvar Cliente'
                 "
               ></app-button>
-              <button [disabled]="form.valid" (click)="onSaveClient()"></button>
+              <!-- <button [disabled]="form.valid" (click)="onSaveClient()"></button> -->
             </div>
           </div>
         </form>

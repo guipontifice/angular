@@ -13,6 +13,6 @@ export class ButtonComponent {
   @Output() onBtnClicked = new EventEmitter<any>();
   onClick() {
     
-    this.onBtnClicked.emit();
+    this.onBtnClicked.emit('admin');
   }
 }

@@ -33,7 +33,7 @@ export class ClientComponent implements OnInit {
       this.clientList = res.data;
     });
   }
-  onSaveClient() {
+  onSaveClient(data: string) {
     // debugger;
     this.clientService.addUpdate(this.clientObj).subscribe((res: APIResponseModel) => {
       if (res.result) {

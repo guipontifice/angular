@@ -8,7 +8,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'master',
+        redirectTo: 'login',
         pathMatch: 'full'
     },
     {
